@@ -1,0 +1,3395 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="theme-color" content="#1976d2">
+<title>Ulangan PAIB Kelas 6</title>
+
+<style>
+:root{
+  --bg:#edf5ff;
+  --card:#f8fbff;
+  --white:#ffffff;
+  --text:#17304f;
+  --muted:#71839b;
+  --blue:#1976d2;
+  --blue2:#42a5f5;
+  --blue3:#90caf9;
+  --light:#e3f1ff;
+  --green:#16a56a;
+  --red:#e53935;
+  --orange:#f59e0b;
+
+  --neo1:10px 10px 22px rgba(91,125,160,.20);
+  --neo2:-10px -10px 22px rgba(255,255,255,.95);
+  --neoSmall:5px 5px 12px rgba(91,125,160,.16),
+              -5px -5px 12px rgba(255,255,255,.95);
+  --neoInset:inset 5px 5px 11px rgba(91,125,160,.14),
+              inset -5px -5px 11px rgba(255,255,255,.95);
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--text);
+  min-height:100vh;
+  overflow-x:hidden;
+  background:
+    radial-gradient(circle at 5% 5%,rgba(66,165,245,.18),transparent 25%),
+    radial-gradient(circle at 95% 15%,rgba(25,118,210,.12),transparent 25%),
+    linear-gradient(135deg,#edf5ff,#f9fcff);
+}
+
+button,input,textarea{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+  -webkit-tap-highlight-color:transparent;
+}
+
+input,textarea{
+  -webkit-tap-highlight-color:transparent;
+}
+
+/* PARTICLES */
+
+#particles{
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  z-index:0;
+  overflow:hidden;
+}
+
+.particle{
+  position:absolute;
+  border-radius:50%;
+  background:rgba(25,118,210,.18);
+  box-shadow:0 0 10px rgba(66,165,245,.18);
+  animation:floatParticle linear infinite;
+}
+
+@keyframes floatParticle{
+  0%{
+    transform:translate3d(0,110vh,0) scale(.5);
+    opacity:0;
+  }
+  15%{
+    opacity:1;
+  }
+  50%{
+    transform:translate3d(35px,50vh,0) scale(1);
+  }
+  85%{
+    opacity:1;
+  }
+  100%{
+    transform:translate3d(-45px,-15vh,0) scale(.6);
+    opacity:0;
+  }
+}
+
+/* RIPPLE */
+
+.ripple{
+  position:absolute;
+  border-radius:50%;
+  transform:scale(0);
+  animation:ripple .6s linear;
+  background:rgba(255,255,255,.55);
+  pointer-events:none;
+}
+
+@keyframes ripple{
+  to{
+    transform:scale(5);
+    opacity:0;
+  }
+}
+
+/* CONTAINER */
+
+.container{
+  width:min(1050px,94%);
+  margin:auto;
+  position:relative;
+  z-index:1;
+}
+
+/* START */
+
+.start-page{
+  padding:30px 0 55px;
+  animation:pageIn .65s ease;
+}
+
+@keyframes pageIn{
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.top-logo{
+  width:86px;
+  height:86px;
+  margin:5px auto 17px;
+  border-radius:28px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#fff;
+  font-size:30px;
+  font-weight:900;
+  letter-spacing:-1px;
+  background:linear-gradient(135deg,#1565c0,#42a5f5);
+  box-shadow:
+    10px 10px 25px rgba(25,118,210,.25),
+    -8px -8px 20px rgba(255,255,255,.9);
+  animation:logoFloat 3s ease-in-out infinite;
+}
+
+@keyframes logoFloat{
+  0%,100%{
+    transform:translateY(0) rotate(0);
+  }
+  50%{
+    transform:translateY(-7px) rotate(1deg);
+  }
+}
+
+.badge{
+  width:max-content;
+  max-width:100%;
+  margin:auto;
+  padding:8px 15px;
+  border-radius:999px;
+  background:#e5f2ff;
+  color:var(--blue);
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.6px;
+  box-shadow:var(--neoSmall);
+}
+
+h1{
+  text-align:center;
+  font-size:clamp(27px,6vw,45px);
+  margin:15px 0 7px;
+}
+
+.subtitle{
+  text-align:center;
+  color:var(--muted);
+  margin-bottom:27px;
+  line-height:1.5;
+}
+
+/* CARD */
+
+.card{
+  background:rgba(248,251,255,.93);
+  border:1px solid rgba(255,255,255,.9);
+  border-radius:25px;
+  padding:22px;
+  margin-bottom:19px;
+  box-shadow:var(--neo1),var(--neo2);
+  backdrop-filter:blur(12px);
+  animation:cardIn .55s ease both;
+}
+
+.card:nth-child(2){animation-delay:.05s}
+.card:nth-child(3){animation-delay:.1s}
+.card:nth-child(4){animation-delay:.15s}
+.card:nth-child(5){animation-delay:.2s}
+
+@keyframes cardIn{
+  from{
+    opacity:0;
+    transform:translateY(16px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.card-title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:16px;
+  font-size:19px;
+  font-weight:900;
+}
+
+.card-title span{
+  width:36px;
+  height:36px;
+  flex:none;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--blue);
+  background:#e8f3ff;
+  box-shadow:var(--neoSmall);
+  font-size:12px;
+}
+
+/* FORM */
+
+.form-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+}
+
+.field label{
+  display:block;
+  font-size:13px;
+  font-weight:900;
+  margin-bottom:8px;
+}
+
+.field input{
+  width:100%;
+  border:0;
+  outline:none;
+  color:var(--text);
+  padding:14px;
+  border-radius:15px;
+  background:#f1f7ff;
+  box-shadow:var(--neoInset);
+  transition:.25s;
+}
+
+.field input::placeholder,
+.fill::placeholder,
+textarea::placeholder{
+  color:#9aaabd;
+}
+
+.field input:focus,
+.fill:focus,
+textarea:focus{
+  box-shadow:
+    inset 4px 4px 10px rgba(91,125,160,.12),
+    inset -4px -4px 10px rgba(255,255,255,.9),
+    0 0 0 3px rgba(66,165,245,.13);
+  transform:translateY(-1px);
+}
+
+/* ATTENDANCE */
+
+.attendance{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:15px;
+  padding:16px;
+  border-radius:17px;
+  background:#edf6ff;
+  box-shadow:var(--neoInset);
+}
+
+.att-left{
+  display:flex;
+  gap:12px;
+  align-items:center;
+}
+
+.att-icon{
+  width:45px;
+  height:45px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--blue);
+  background:#e4f1ff;
+  box-shadow:var(--neoSmall);
+  font-weight:900;
+}
+
+.status{
+  color:var(--green);
+  font-weight:900;
+  font-size:13px;
+  padding:8px 11px;
+  border-radius:999px;
+  background:#e9fff6;
+  box-shadow:var(--neoSmall);
+}
+
+#absen{
+  box-shadow:var(--neoInset)!important;
+  border:0!important;
+  background:#f1f7ff!important;
+}
+
+/* KISI */
+
+.kisi-list{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+
+.kisi{
+  padding:13px 14px;
+  border-radius:14px;
+  background:#f1f7ff;
+  box-shadow:var(--neoSmall);
+  font-size:14px;
+  transition:.25s;
+}
+
+.kisi:hover{
+  transform:translateY(-2px);
+}
+
+.kisi b{
+  color:var(--blue);
+}
+
+.read-box{
+  margin-top:17px;
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+  padding:15px;
+  border-radius:16px;
+  background:#e9f5ff;
+  box-shadow:var(--neoInset);
+  cursor:pointer;
+}
+
+.read-box input{
+  margin-top:3px;
+  accent-color:var(--blue);
+}
+
+/* RULES */
+
+.rules{
+  display:grid;
+  gap:10px;
+}
+
+.rule{
+  padding:13px 15px;
+  border-radius:14px;
+  background:#f2f8ff;
+  box-shadow:var(--neoSmall);
+  border-left:4px solid var(--blue2);
+  font-size:14px;
+  line-height:1.4;
+}
+
+.ready{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:20px 0;
+  padding:15px;
+  border-radius:15px;
+  background:#edf6ff;
+  box-shadow:var(--neoInset);
+  font-weight:800;
+}
+
+.ready-dot{
+  width:12px;
+  height:12px;
+  flex:none;
+  border-radius:50%;
+  background:#aeb9c6;
+  transition:.3s;
+}
+
+.ready-dot.ok{
+  background:var(--green);
+  box-shadow:0 0 0 5px rgba(22,165,106,.10),0 0 15px rgba(22,165,106,.45);
+  animation:readyPulse 1.5s infinite;
+}
+
+@keyframes readyPulse{
+  50%{transform:scale(1.25)}
+}
+
+/* BUTTON */
+
+.start-btn,
+.submit-btn,
+.restart{
+  position:relative;
+  overflow:hidden;
+  width:100%;
+  border:0;
+  color:#fff;
+  font-weight:900;
+  border-radius:18px;
+  background:linear-gradient(135deg,#1565c0,#42a5f5);
+  box-shadow:
+    8px 9px 18px rgba(25,118,210,.23),
+    -5px -5px 12px rgba(255,255,255,.9);
+  transition:.2s;
+}
+
+.start-btn{
+  padding:17px;
+  font-size:16px;
+}
+
+.start-btn:hover,
+.submit-btn:hover,
+.restart:hover{
+  transform:translateY(-3px);
+  box-shadow:
+    10px 13px 25px rgba(25,118,210,.25),
+    -5px -5px 13px rgba(255,255,255,.95);
+}
+
+.start-btn:active,
+.submit-btn:active,
+.restart:active{
+  transform:translateY(1px) scale(.985);
+  box-shadow:var(--neoInset);
+}
+
+.start-btn:disabled{
+  cursor:not-allowed;
+  opacity:.45;
+  transform:none;
+  box-shadow:var(--neoSmall);
+}
+
+/* EXAM */
+
+#examPage{
+  display:none;
+  padding:20px 0 55px;
+  animation:pageIn .6s ease;
+}
+
+.exam-header{
+  background:var(--card);
+  border-radius:24px;
+  padding:20px;
+  box-shadow:var(--neo1),var(--neo2);
+  margin-bottom:15px;
+}
+
+.exam-title{
+  font-size:24px;
+  font-weight:900;
+}
+
+.student-info{
+  color:var(--muted);
+  margin-top:7px;
+  font-size:14px;
+  line-height:1.5;
+}
+
+.timer-wrap{
+  position:sticky;
+  top:10px;
+  z-index:20;
+  margin-bottom:15px;
+}
+
+.timer{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  background:#f8fbff;
+  padding:14px 17px;
+  border-radius:18px;
+  box-shadow:var(--neo1),var(--neo2);
+  border:1px solid rgba(255,255,255,.9);
+  transition:.3s;
+}
+
+.timer-label{
+  color:var(--muted);
+  font-size:12px;
+  font-weight:900;
+}
+
+#time{
+  color:var(--blue);
+  font-size:23px;
+  font-weight:900;
+  font-variant-numeric:tabular-nums;
+}
+
+.timer.warning{
+  animation:timerWarning 1s infinite;
+}
+
+.timer.warning #time{
+  color:var(--red);
+  animation:blink .8s infinite;
+}
+
+@keyframes timerWarning{
+  50%{
+    box-shadow:
+      0 0 0 4px rgba(229,57,53,.08),
+      var(--neo1),
+      var(--neo2);
+  }
+}
+
+@keyframes blink{
+  50%{opacity:.45}
+}
+
+/* PROGRESS */
+
+.progress-box{
+  background:#f8fbff;
+  border-radius:18px;
+  padding:15px 17px;
+  box-shadow:var(--neoSmall);
+  margin-bottom:17px;
+}
+
+.progress-top{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  font-size:13px;
+  font-weight:900;
+  margin-bottom:10px;
+}
+
+.progress-track{
+  height:10px;
+  border-radius:20px;
+  background:#e4edf8;
+  box-shadow:var(--neoInset);
+  overflow:hidden;
+}
+
+.progress-bar{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,#1565c0,#42a5f5);
+  border-radius:20px;
+  transition:.4s cubic-bezier(.2,.8,.2,1);
+}
+
+/* QUESTIONS */
+
+.section-label{
+  margin:24px 0 13px;
+  font-size:19px;
+  font-weight:900;
+  color:var(--blue);
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.section-label::after{
+  content:"";
+  height:2px;
+  flex:1;
+  background:linear-gradient(90deg,var(--blue3),transparent);
+}
+
+.question{
+  background:#f8fbff;
+  border-radius:21px;
+  padding:19px;
+  margin-bottom:15px;
+  box-shadow:var(--neo1),var(--neo2);
+  border:1px solid rgba(255,255,255,.9);
+  transition:.25s;
+  animation:questionIn .5s ease both;
+}
+
+@keyframes questionIn{
+  from{
+    opacity:0;
+    transform:translateY(10px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+.question.answered{
+  border-color:rgba(25,118,210,.25);
+  box-shadow:
+    6px 6px 15px rgba(91,125,160,.15),
+    -6px -6px 15px rgba(255,255,255,.9),
+    0 0 0 2px rgba(66,165,245,.05);
+}
+
+.q-number{
+  color:var(--blue);
+  font-size:12px;
+  font-weight:900;
+  margin-bottom:8px;
+  letter-spacing:.5px;
+}
+
+.q-text{
+  font-weight:800;
+  line-height:1.6;
+  margin-bottom:14px;
+}
+
+/* OPTIONS */
+
+.option{
+  position:relative;
+  display:block;
+  padding:13px 14px;
+  border:0;
+  border-radius:14px;
+  margin-top:9px;
+  background:#f0f6fd;
+  box-shadow:var(--neoSmall);
+  cursor:pointer;
+  transition:.2s;
+  overflow:hidden;
+}
+
+.option:hover{
+  transform:translateX(3px);
+}
+
+.option:active{
+  transform:scale(.99);
+}
+
+.option input{
+  accent-color:var(--blue);
+  margin-right:8px;
+}
+
+.option:has(input:checked){
+  background:#e4f2ff;
+  color:#0d5ca9;
+  box-shadow:
+    inset 4px 4px 9px rgba(91,125,160,.12),
+    inset -4px -4px 9px rgba(255,255,255,.9);
+}
+
+/* INPUT */
+
+.fill,
+textarea{
+  width:100%;
+  border:0;
+  outline:none;
+  border-radius:15px;
+  background:#f0f6fd;
+  color:var(--text);
+  box-shadow:var(--neoInset);
+  transition:.25s;
+}
+
+.fill{
+  padding:14px;
+}
+
+textarea{
+  min-height:130px;
+  resize:vertical;
+  padding:14px;
+  line-height:1.5;
+}
+
+/* SUBMIT */
+
+.submit-btn{
+  padding:18px;
+  margin-top:17px;
+  font-size:16px;
+}
+
+/* RESULT */
+
+.result{
+  display:none;
+  padding:25px 0 55px;
+  animation:pageIn .7s ease;
+}
+
+.result-card{
+  background:#f8fbff;
+  border-radius:27px;
+  padding:27px;
+  box-shadow:var(--neo1),var(--neo2);
+  text-align:center;
+}
+
+.result-icon{
+  width:76px;
+  height:76px;
+  border-radius:24px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#e7f3ff;
+  color:var(--blue);
+  font-size:28px;
+  font-weight:900;
+  box-shadow:var(--neoSmall);
+  animation:resultPop .7s cubic-bezier(.2,1.5,.5,1);
+}
+
+@keyframes resultPop{
+  from{
+    transform:scale(.4) rotate(-10deg);
+    opacity:0;
+  }
+  to{
+    transform:scale(1) rotate(0);
+    opacity:1;
+  }
+}
+
+.score{
+  font-size:56px;
+  font-weight:900;
+  color:var(--blue);
+  margin:10px 0;
+  text-shadow:2px 3px 5px rgba(25,118,210,.12);
+}
+
+.result-desc{
+  color:var(--muted);
+  line-height:1.55;
+}
+
+.result-info{
+  margin-top:20px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:11px;
+}
+
+.result-mini{
+  padding:15px;
+  background:#edf6ff;
+  border-radius:15px;
+  box-shadow:var(--neoSmall);
+}
+
+.result-mini b{
+  display:block;
+  font-size:21px;
+  color:var(--blue);
+  margin-bottom:3px;
+}
+
+.correction{
+  text-align:left;
+  margin-top:22px;
+}
+
+.correct-item{
+  padding:13px;
+  border-radius:14px;
+  background:#edf6ff;
+  box-shadow:var(--neoSmall);
+  margin-top:9px;
+  font-size:14px;
+}
+
+.restart{
+  padding:16px;
+  margin-top:19px;
+}
+
+/* TOAST */
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:22px;
+  transform:translate(-50%,25px) scale(.95);
+  opacity:0;
+  pointer-events:none;
+  background:#17304f;
+  color:white;
+  padding:13px 18px;
+  border-radius:15px;
+  font-size:13px;
+  font-weight:700;
+  z-index:100;
+  transition:.3s cubic-bezier(.2,.8,.2,1);
+  box-shadow:0 15px 30px rgba(23,48,79,.25);
+  max-width:90%;
+  text-align:center;
+}
+
+.toast.show{
+  opacity:1;
+  transform:translate(-50%,0) scale(1);
+}
+
+.hidden{
+  display:none!important;
+}
+
+/* MOBILE */
+
+@media(max-width:700px){
+
+  .container{
+    width:92%;
+  }
+
+  .form-grid,
+  .kisi-list,
+  .result-info{
+    grid-template-columns:1fr;
+  }
+
+  .card{
+    padding:17px;
+    border-radius:20px;
+  }
+
+  .question{
+    padding:16px;
+    border-radius:18px;
+  }
+
+  h1{
+    font-size:30px;
+  }
+
+  .top-logo{
+    width:78px;
+    height:78px;
+  }
+
+  .attendance{
+    align-items:flex-start;
+  }
+
+  .status{
+    font-size:11px;
+  }
+
+  .exam-title{
+    font-size:21px;
+  }
+
+  #time{
+    font-size:20px;
+  }
+
+  .result-card{
+    padding:21px;
+  }
+}
+
+/* REDUCE MOTION */
+
+@media(prefers-reduced-motion:reduce){
+  *,
+  *::before,
+  *::after{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    scroll-behavior:auto!important;
+    transition-duration:.01ms!important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div id="particles"></div>
+
+<div class="container">
+
+<!-- ================= START PAGE ================= -->
+
+<section class="start-page" id="startPage">
+
+  <div class="top-logo">PAI</div>
+
+  <div class="badge">
+    ULANGAN ONLINE KELAS 6
+  </div>
+
+  <h1>Pendidikan Agama Islam</h1>
+
+  <p class="subtitle">
+    Pendidikan Agama Islam dan Budi Pekerti
+  </p>
+
+
+  <!-- IDENTITAS -->
+
+  <div class="card">
+
+    <div class="card-title">
+      <span>01</span>
+      Identitas Peserta
+    </div>
+
+    <div class="form-grid">
+
+      <div class="field">
+        <label>Nama Lengkap</label>
+        <input id="nama" type="text"
+          placeholder="Masukkan nama lengkap">
+      </div>
+
+      <div class="field">
+        <label>Kelas</label>
+        <input id="kelas" type="text"
+          placeholder="Contoh: 6A">
+      </div>
+
+      <div class="field">
+        <label>Asal Sekolah</label>
+        <input id="sekolah" type="text"
+          placeholder="Nama sekolah">
+      </div>
+
+      <div class="field">
+        <label>Desa/Kelurahan</label>
+        <input id="desa" type="text"
+          placeholder="Nama desa/kelurahan">
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ABSEN -->
+
+  <div class="card">
+
+    <div class="card-title">
+      <span>02</span>
+      Kehadiran
+    </div>
+
+    <div class="attendance">
+
+      <div class="att-left">
+
+        <div class="att-icon">✓</div>
+
+        <div>
+
+          <b>Nomor Absen</b>
+
+          <div style="margin-top:7px">
+
+            <input
+              id="absen"
+              type="number"
+              min="1"
+              max="50"
+              placeholder="Contoh: 12"
+              style="
+                width:130px;
+                padding:11px;
+                border:0;
+                outline:none;
+                border-radius:11px;
+                background:#f1f7ff;
+              "
+            >
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="status">
+        HADIR
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- KISI KISI -->
+
+  <div class="card">
+
+    <div class="card-title">
+      <span>03</span>
+      Kisi-Kisi Materi
+    </div>
+
+    <p style="
+      color:var(--muted);
+      font-size:14px;
+      margin-bottom:14px;
+      line-height:1.5;
+    ">
+      Bacalah kisi-kisi berikut sebelum mengerjakan soal.
+    </p>
+
+    <div class="kisi-list">
+
+      <div class="kisi">
+        <b>1.</b> Al-Qur'an dan Hadis
+      </div>
+
+      <div class="kisi">
+        <b>2.</b> Surah pendek dan kandungannya
+      </div>
+
+      <div class="kisi">
+        <b>3.</b> Asmaul Husna
+      </div>
+
+      <div class="kisi">
+        <b>4.</b> Iman kepada Allah
+      </div>
+
+      <div class="kisi">
+        <b>5.</b> Iman kepada kitab Allah
+      </div>
+
+      <div class="kisi">
+        <b>6.</b> Akhlak terpuji
+      </div>
+
+      <div class="kisi">
+        <b>7.</b> Akhlak tercela
+      </div>
+
+      <div class="kisi">
+        <b>8.</b> Zakat, infak dan sedekah
+      </div>
+
+      <div class="kisi">
+        <b>9.</b> Puasa
+      </div>
+
+      <div class="kisi">
+        <b>10.</b> Haji dan ibadah
+      </div>
+
+      <div class="kisi">
+        <b>11.</b> Sejarah Nabi dan Khulafaur Rasyidin
+      </div>
+
+      <div class="kisi">
+        <b>12.</b> Toleransi dan hidup rukun
+      </div>
+
+    </div>
+
+    <label class="read-box">
+
+      <input id="readKisi" type="checkbox">
+
+      <span>
+        Saya sudah membaca dan memahami kisi-kisi ulangan.
+      </span>
+
+    </label>
+
+  </div>
+
+
+  <!-- ATURAN -->
+
+  <div class="card">
+
+    <div class="card-title">
+      <span>04</span>
+      Aturan Ulangan
+    </div>
+
+    <div class="rules">
+
+      <div class="rule">
+        Waktu pengerjaan adalah <b>60 menit</b>.
+      </div>
+
+      <div class="rule">
+        Bacalah setiap soal dengan teliti sebelum memilih jawaban.
+      </div>
+
+      <div class="rule">
+        Nomor 1–40 dikoreksi otomatis oleh sistem.
+      </div>
+
+      <div class="rule">
+        Nomor 41–45 berupa uraian dan membutuhkan pemeriksaan guru.
+      </div>
+
+      <div class="rule">
+        Pastikan semua jawaban sudah diperiksa sebelum mengirim.
+      </div>
+
+    </div>
+
+    <div class="ready">
+
+      <div id="readyDot" class="ready-dot"></div>
+
+      <span id="readyText">
+        Lengkapi identitas dan baca kisi-kisi terlebih dahulu.
+      </span>
+
+    </div>
+
+    <button
+      id="startBtn"
+      class="start-btn"
+      disabled
+    >
+      MULAI ULANGAN
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ================= EXAM ================= -->
+
+<section id="examPage">
+
+  <div class="exam-header">
+
+    <div class="exam-title">
+      Ulangan Pendidikan Agama Islam
+    </div>
+
+    <div
+      id="studentInfo"
+      class="student-info">
+    </div>
+
+  </div>
+
+
+  <div class="timer-wrap">
+
+    <div class="timer" id="timerBox">
+
+      <div>
+
+        <div class="timer-label">
+          WAKTU TERSISA
+        </div>
+
+        <div id="time">
+          60:00
+        </div>
+
+      </div>
+
+      <div style="
+        font-size:12px;
+        color:var(--muted);
+        font-weight:900;
+      ">
+        PAIB KELAS 6
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <div class="progress-box">
+
+    <div class="progress-top">
+
+      <span>
+        Progress Jawaban
+      </span>
+
+      <span id="progressText">
+        0/45 soal terjawab
+      </span>
+
+    </div>
+
+    <div class="progress-track">
+
+      <div
+        id="progressBar"
+        class="progress-bar">
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <form id="quizForm">
+
+
+    <!-- A -->
+
+    <div class="section-label">
+      A. Pilihan Ganda
+    </div>
+
+
+    <!-- 1 -->
+
+    <div class="question">
+
+      <div class="q-number">
+        SOAL 1
+      </div>
+
+      <div class="q-text">
+        Kitab suci umat Islam adalah ....
+      </div>
+
+      <label class="option">
+        <input type="radio" name="q1" value="A">
+        A. Al-Qur'an
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q1" value="B">
+        B. Injil
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q1" value="C">
+        C. Taurat
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q1" value="D">
+        D. Weda
+      </label>
+
+    </div>
+
+
+    <!-- 2 -->
+
+    <div class="question">
+
+      <div class="q-number">
+        SOAL 2
+      </div>
+
+      <div class="q-text">
+        Al-Qur'an diturunkan kepada Nabi ....
+      </div>
+
+      <label class="option">
+        <input type="radio" name="q2" value="A">
+        A. Muhammad SAW
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q2" value="B">
+        B. Musa AS
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q2" value="C">
+        C. Isa AS
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q2" value="D">
+        D. Ibrahim AS
+      </label>
+
+    </div>
+
+
+    <!-- 3 -->
+
+    <div class="question">
+
+      <div class="q-number">
+        SOAL 3
+      </div>
+
+      <div class="q-text">
+        Surah Al-Ikhlas menjelaskan tentang ....
+      </div>
+
+      <label class="option">
+        <input type="radio" name="q3" value="A">
+        A. Keesaan Allah
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q3" value="B">
+        B. Perjalanan Nabi
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q3" value="C">
+        C. Hukum waris
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q3" value="D">
+        D. Tata cara haji
+      </label>
+
+    </div>
+
+
+    <!-- 4 -->
+
+    <div class="question">
+
+      <div class="q-number">
+        SOAL 4
+      </div>
+
+      <div class="q-text">
+        Asmaul Husna berarti ....
+      </div>
+
+      <label class="option">
+        <input type="radio" name="q4" value="A">
+        A. Nama-nama Allah yang indah
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q4" value="B">
+        B. Nama para nabi
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q4" value="C">
+        C. Nama malaikat
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q4" value="D">
+        D. Nama kitab
+      </label>
+
+    </div>
+
+
+    <!-- 5 -->
+
+    <div class="question">
+
+      <div class="q-number">
+        SOAL 5
+      </div>
+
+      <div class="q-text">
+        Ar-Rahman memiliki arti ....
+      </div>
+
+      <label class="option">
+        <input type="radio" name="q5" value="A">
+        A. Maha Pengasih
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q5" value="B">
+        B. Maha Mengetahui
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q5" value="C">
+        C. Maha Mendengar
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q5" value="D">
+        D. Maha Melihat
+      </label>
+
+    </div>
+
+
+    <!-- 6 -->
+
+    <div class="question">
+
+      <div class="q-number">
+        SOAL 6
+      </div>
+
+      <div class="q-text">
+        Beriman kepada Allah berarti ....
+      </div>
+
+      <label class="option">
+        <input type="radio" name="q6" value="A">
+        A. Meyakini Allah sebagai satu-satunya Tuhan
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q6" value="B">
+        B. Hanya percaya kepada manusia
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q6" value="C">
+        C. Tidak perlu beribadah
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q6" value="D">
+        D. Menganggap semua benda sebagai Tuhan
+      </label>
+
+    </div>
+
+
+    <!-- 7 -->
+
+    <div class="question">
+
+      <div class="q-number">
+        SOAL 7
+      </div>
+
+      <div class="q-text">
+        Kitab Taurat diturunkan kepada Nabi ....
+      </div>
+
+      <label class="option">
+        <input type="radio" name="q7" value="A">
+        A. Musa AS
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q7" value="B">
+        B. Muhammad SAW
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q7" value="C">
+        C. Isa AS
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q7" value="D">
+        D. Daud AS
+      </label>
+
+    </div>
+
+
+    <!-- 8 -->
+
+    <div class="question">
+
+      <div class="q-number">
+        SOAL 8
+      </div>
+
+      <div class="q-text">
+        Contoh perilaku jujur adalah ....
+      </div>
+
+      <label class="option">
+        <input type="radio" name="q8" value="A">
+        A. Mengembalikan barang yang ditemukan
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q8" value="B">
+        B. Menyontek saat ujian
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q8" value="C">
+        C. Berbohong kepada orang tua
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q8" value="D">
+        D. Mengambil barang teman
+      </label>
+
+    </div>
+
+
+    <!-- 9 -->
+
+    <div class="question">
+
+      <div class="q-number">
+        SOAL 9
+      </div>
+
+      <div class="q-text">
+        Lawan dari sifat amanah adalah ....
+      </div>
+
+      <label class="option">
+        <input type="radio" name="q9" value="A">
+        A. Khianat
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q9" value="B">
+        B. Jujur
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q9" value="C">
+        C. Sabar
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q9" value="D">
+        D. Ikhlas
+      </label>
+
+    </div>
+
+
+    <!-- 10 -->
+
+    <div class="question">
+
+      <div class="q-number">
+        SOAL 10
+      </div>
+
+      <div class="q-text">
+        Bersikap rendah hati disebut ....
+      </div>
+
+      <label class="option">
+        <input type="radio" name="q10" value="A">
+        A. Tawaduk
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q10" value="B">
+        B. Takabur
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q10" value="C">
+        C. Hasad
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q10" value="D">
+        D. Riya
+      </label>
+
+    </div>
+
+
+    <!-- 11 -->
+
+    <div class="question">
+
+      <div class="q-number">
+        SOAL 11
+      </div>
+
+      <div class="q-text">
+        Zakat fitrah dikeluarkan pada bulan ....
+      </div>
+
+      <label class="option">
+        <input type="radio" name="q11" value="A">
+        A. Ramadan
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q11" value="B">
+        B. Muharam
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q11" value="C">
+        C. Safar
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q11" value="D">
+        D. Rajab
+      </label>
+
+    </div>
+
+
+    <!-- 12 -->
+
+    <div class="question">
+
+      <div class="q-number">
+        SOAL 12
+      </div>
+
+      <div class="q-text">
+        Memberikan sebagian harta dengan ikhlas untuk membantu orang lain disebut ....
+      </div>
+
+      <label class="option">
+        <input type="radio" name="q12" value="A">
+        A. Sedekah
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q12" value="B">
+        B. Riba
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q12" value="C">
+        C. Ghibah
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q12" value="D">
+        D. Fitnah
+      </label>
+
+    </div>
+
+
+    <!-- 13 -->
+
+    <div class="question">
+
+      <div class="q-number">
+        SOAL 13
+      </div>
+
+      <div class="q-text">
+        Puasa berarti menahan diri dari makan dan minum sejak ....
+      </div>
+
+      <label class="option">
+        <input type="radio" name="q13" value="A">
+        A. Terbit fajar sampai terbenam matahari
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q13" value="B">
+        B. Tengah malam sampai siang
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q13" value="C">
+        C. Siang sampai malam
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q13" value="D">
+        D. Magrib sampai Subuh
+      </label>
+
+    </div>
+
+
+    <!-- 14 -->
+
+    <div class="question">
+
+      <div class="q-number">
+        SOAL 14
+      </div>
+
+      <div class="q-text">
+        Puasa wajib bagi umat Islam dilakukan pada bulan ....
+      </div>
+
+      <label class="option">
+        <input type="radio" name="q14" value="A">
+        A. Ramadan
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q14" value="B">
+        B. Syawal
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q14" value="C">
+        C. Zulhijah
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q14" value="D">
+        D. Muharam
+      </label>
+
+    </div>
+
+
+    <!-- 15 -->
+
+    <div class="question">
+
+      <div class="q-number">
+        SOAL 15
+      </div>
+
+      <div class="q-text">
+        Ibadah haji dilaksanakan di kota ....
+      </div>
+
+      <label class="option">
+        <input type="radio" name="q15" value="A">
+        A. Makkah
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q15" value="B">
+        B. Madinah
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q15" value="C">
+        C. Baghdad
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q15" value="D">
+        D. Kairo
+      </label>
+
+    </div>
+
+
+    <!-- 16 -->
+
+    <div class="question">
+
+      <div class="q-number">
+        SOAL 16
+      </div>
+
+      <div class="q-text">
+        Salah satu rukun Islam adalah ....
+      </div>
+
+      <label class="option">
+        <input type="radio" name="q16" value="A">
+        A. Salat
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q16" value="B">
+        B. Tidur
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q16" value="C">
+        C. Bermain
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q16" value="D">
+        D. Berlibur
+      </label>
+
+    </div>
+
+
+    <!-- 17 -->
+
+    <div class="question">
+
+      <div class="q-number">
+        SOAL 17
+      </div>
+
+      <div class="q-text">
+        Nabi Muhammad SAW lahir di kota ....
+      </div>
+
+      <label class="option">
+        <input type="radio" name="q17" value="A">
+        A. Makkah
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q17" value="B">
+        B. Madinah
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q17" value="C">
+        C. Yerusalem
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q17" value="D">
+        D. Damaskus
+      </label>
+
+    </div>
+
+
+    <!-- 18 -->
+
+    <div class="question">
+
+      <div class="q-number">
+        SOAL 18
+      </div>
+
+      <div class="q-text">
+        Nabi Muhammad SAW menerima wahyu pertama di ....
+      </div>
+
+      <label class="option">
+        <input type="radio" name="q18" value="A">
+        A. Gua Hira
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q18" value="B">
+        B. Gua Tsur
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q18" value="C">
+        C. Masjid Nabawi
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q18" value="D">
+        D. Ka'bah
+      </label>
+
+    </div>
+
+
+    <!-- 19 -->
+
+    <div class="question">
+
+      <div class="q-number">
+        SOAL 19
+      </div>
+
+      <div class="q-text">
+        Sahabat Nabi yang pertama menjadi khalifah adalah ....
+      </div>
+
+      <label class="option">
+        <input type="radio" name="q19" value="A">
+        A. Abu Bakar Ash-Shiddiq
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q19" value="B">
+        B. Umar bin Khattab
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q19" value="C">
+        C. Utsman bin Affan
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q19" value="D">
+        D. Ali bin Abi Thalib
+      </label>
+
+    </div>
+
+
+    <!-- 20 -->
+
+    <div class="question">
+
+      <div class="q-number">
+        SOAL 20
+      </div>
+
+      <div class="q-text">
+        Sikap menghargai perbedaan disebut ....
+      </div>
+
+      <label class="option">
+        <input type="radio" name="q20" value="A">
+        A. Toleransi
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q20" value="B">
+        B. Sombong
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q20" value="C">
+        C. Dengki
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q20" value="D">
+        D. Iri
+      </label>
+
+    </div>
+
+
+    <!-- 21 -->
+
+    <div class="question">
+
+      <div class="q-number">
+        SOAL 21
+      </div>
+
+      <div class="q-text">
+        Ketika teman berbeda agama sedang beribadah, sikap kita sebaiknya ....
+      </div>
+
+      <label class="option">
+        <input type="radio" name="q21" value="A">
+        A. Menghormatinya
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q21" value="B">
+        B. Mengganggunya
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q21" value="C">
+        C. Mengejeknya
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q21" value="D">
+        D. Melarangnya
+      </label>
+
+    </div>
+
+
+    <!-- 22 -->
+
+    <div class="question">
+
+      <div class="q-number">
+        SOAL 22
+      </div>
+
+      <div class="q-text">
+        Membaca Al-Qur'an sebaiknya dilakukan dengan ....
+      </div>
+
+      <label class="option">
+        <input type="radio" name="q22" value="A">
+        A. Tartil dan penuh perhatian
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q22" value="B">
+        B. Bercanda
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q22" value="C">
+        C. Tergesa-gesa
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q22" value="D">
+        D. Sambil berteriak
+      </label>
+
+    </div>
+
+
+    <!-- 23 -->
+
+    <div class="question">
+
+      <div class="q-number">
+        SOAL 23
+      </div>
+
+      <div class="q-text">
+        Sebelum makan kita dianjurkan membaca ....
+      </div>
+
+      <label class="option">
+        <input type="radio" name="q23" value="A">
+        A. Basmalah
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q23" value="B">
+        B. Takbiratul ihram
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q23" value="C">
+        C. Salam
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q23" value="D">
+        D. Azan
+      </label>
+
+    </div>
+
+
+    <!-- 24 -->
+
+    <div class="question">
+
+      <div class="q-number">
+        SOAL 24
+      </div>
+
+      <div class="q-text">
+        Setelah mendapatkan nikmat, seorang muslim sebaiknya ....
+      </div>
+
+      <label class="option">
+        <input type="radio" name="q24" value="A">
+        A. Bersyukur kepada Allah
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q24" value="B">
+        B. Sombong
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q24" value="C">
+        C. Mengeluh
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q24" value="D">
+        D. Meremehkan orang lain
+      </label>
+
+    </div>
+
+
+    <!-- 25 -->
+
+    <div class="question">
+
+      <div class="q-number">
+        SOAL 25
+      </div>
+
+      <div class="q-text">
+        Perilaku menyampaikan perkataan orang lain dengan tujuan mengadu domba disebut ....
+      </div>
+
+      <label class="option">
+        <input type="radio" name="q25" value="A">
+        A. Namimah
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q25" value="B">
+        B. Amanah
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q25" value="C">
+        C. Tawaduk
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q25" value="D">
+        D. Ikhlas
+      </label>
+
+    </div>
+
+
+    <!-- 26 -->
+
+    <div class="question">
+
+      <div class="q-number">
+        SOAL 26
+      </div>
+
+      <div class="q-text">
+        Perilaku berbuat baik kepada kedua orang tua disebut ....
+      </div>
+
+      <label class="option">
+        <input type="radio" name="q26" value="A">
+        A. Birrul walidain
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q26" value="B">
+        B. Takabur
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q26" value="C">
+        C. Hasad
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q26" value="D">
+        D. Riya
+      </label>
+
+    </div>
+
+
+    <!-- B -->
+
+    <div class="section-label">
+      B. Benar atau Salah
+    </div>
+
+
+    <div class="question">
+
+      <div class="q-number">SOAL 27</div>
+
+      <div class="q-text">
+        Al-Qur'an merupakan kitab suci umat Islam.
+      </div>
+
+      <label class="option">
+        <input type="radio" name="q27" value="A">
+        A. Benar
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q27" value="B">
+        B. Salah
+      </label>
+
+    </div>
+
+
+    <div class="question">
+
+      <div class="q-number">SOAL 28</div>
+
+      <div class="q-text">
+        Ramadan adalah bulan diwajibkannya puasa bagi umat Islam.
+      </div>
+
+      <label class="option">
+        <input type="radio" name="q28" value="A">
+        A. Benar
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q28" value="B">
+        B. Salah
+      </label>
+
+    </div>
+
+
+    <div class="question">
+
+      <div class="q-number">SOAL 29</div>
+
+      <div class="q-text">
+        Menyontek merupakan contoh perilaku jujur.
+      </div>
+
+      <label class="option">
+        <input type="radio" name="q29" value="A">
+        A. Benar
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q29" value="B">
+        B. Salah
+      </label>
+
+    </div>
+
+
+    <div class="question">
+
+      <div class="q-number">SOAL 30</div>
+
+      <div class="q-text">
+        Tawaduk berarti rendah hati.
+      </div>
+
+      <label class="option">
+        <input type="radio" name="q30" value="A">
+        A. Benar
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q30" value="B">
+        B. Salah
+      </label>
+
+    </div>
+
+
+    <div class="question">
+
+      <div class="q-number">SOAL 31</div>
+
+      <div class="q-text">
+        Sedekah hanya boleh diberikan kepada orang kaya.
+      </div>
+
+      <label class="option">
+        <input type="radio" name="q31" value="A">
+        A. Benar
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q31" value="B">
+        B. Salah
+      </label>
+
+    </div>
+
+
+    <div class="question">
+
+      <div class="q-number">SOAL 32</div>
+
+      <div class="q-text">
+        Nabi Muhammad SAW lahir di Makkah.
+      </div>
+
+      <label class="option">
+        <input type="radio" name="q32" value="A">
+        A. Benar
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q32" value="B">
+        B. Salah
+      </label>
+
+    </div>
+
+
+    <div class="question">
+
+      <div class="q-number">SOAL 33</div>
+
+      <div class="q-text">
+        Gua Hira adalah tempat Nabi Muhammad SAW menerima wahyu pertama.
+      </div>
+
+      <label class="option">
+        <input type="radio" name="q33" value="A">
+        A. Benar
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q33" value="B">
+        B. Salah
+      </label>
+
+    </div>
+
+
+    <div class="question">
+
+      <div class="q-number">SOAL 34</div>
+
+      <div class="q-text">
+        Toleransi berarti memaksakan keyakinan kepada orang lain.
+      </div>
+
+      <label class="option">
+        <input type="radio" name="q34" value="A">
+        A. Benar
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q34" value="B">
+        B. Salah
+      </label>
+
+    </div>
+
+
+    <div class="question">
+
+      <div class="q-number">SOAL 35</div>
+
+      <div class="q-text">
+        Menghormati orang tua merupakan salah satu akhlak terpuji.
+      </div>
+
+      <label class="option">
+        <input type="radio" name="q35" value="A">
+        A. Benar
+      </label>
+
+      <label class="option">
+        <input type="radio" name="q35" value="B">
+        B. Salah
+      </label>
+
+    </div>
+
+
+    <!-- C -->
+
+    <div class="section-label">
+      C. Isian Singkat
+    </div>
+
+
+    <div class="question">
+
+      <div class="q-number">SOAL 36</div>
+
+      <div class="q-text">
+        Kitab suci umat Islam adalah ....
+      </div>
+
+      <input
+        class="fill"
+        name="q36"
+        type="text"
+        placeholder="Tulis jawabanmu"
+      >
+
+    </div>
+
+
+    <div class="question">
+
+      <div class="q-number">SOAL 37</div>
+
+      <div class="q-text">
+        Bulan wajib melaksanakan puasa adalah bulan ....
+      </div>
+
+      <input
+        class="fill"
+        name="q37"
+        type="text"
+        placeholder="Tulis jawabanmu"
+      >
+
+    </div>
+
+
+    <div class="question">
+
+      <div class="q-number">SOAL 38</div>
+
+      <div class="q-text">
+        Sikap rendah hati disebut ....
+      </div>
+
+      <input
+        class="fill"
+        name="q38"
+        type="text"
+        placeholder="Tulis jawabanmu"
+      >
+
+    </div>
+
+
+    <div class="question">
+
+      <div class="q-number">SOAL 39</div>
+
+      <div class="q-text">
+        Nabi Muhammad SAW menerima wahyu pertama di Gua ....
+      </div>
+
+      <input
+        class="fill"
+        name="q39"
+        type="text"
+        placeholder="Tulis jawabanmu"
+      >
+
+    </div>
+
+
+    <div class="question">
+
+      <div class="q-number">SOAL 40</div>
+
+      <div class="q-text">
+        Sikap menghargai perbedaan disebut ....
+      </div>
+
+      <input
+        class="fill"
+        name="q40"
+        type="text"
+        placeholder="Tulis jawabanmu"
+      >
+
+    </div>
+
+
+    <!-- D -->
+
+    <div class="section-label">
+      D. Uraian
+    </div>
+
+
+    <div class="question">
+
+      <div class="q-number">SOAL 41</div>
+
+      <div class="q-text">
+        Jelaskan pengertian iman kepada Allah!
+      </div>
+
+      <textarea
+        name="q41"
+        placeholder="Tuliskan jawabanmu dengan jelas..."
+      ></textarea>
+
+    </div>
+
+
+    <div class="question">
+
+      <div class="q-number">SOAL 42</div>
+
+      <div class="q-text">
+        Sebutkan lima contoh akhlak terpuji dalam kehidupan sehari-hari!
+      </div>
+
+      <textarea
+        name="q42"
+        placeholder="Tuliskan jawabanmu dengan jelas..."
+      ></textarea>
+
+    </div>
+
+
+    <div class="question">
+
+      <div class="q-number">SOAL 43</div>
+
+      <div class="q-text">
+        Jelaskan perbedaan zakat, infak, dan sedekah secara sederhana!
+      </div>
+
+      <textarea
+        name="q43"
+        placeholder="Tuliskan jawabanmu dengan jelas..."
+      ></textarea>
+
+    </div>
+
+
+    <div class="question">
+
+      <div class="q-number">SOAL 44</div>
+
+      <div class="q-text">
+        Jelaskan mengapa kita harus menghormati orang tua dan guru!
+      </div>
+
+      <textarea
+        name="q44"
+        placeholder="Tuliskan jawabanmu dengan jelas..."
+      ></textarea>
+
+    </div>
+
+
+    <div class="question">
+
+      <div class="q-number">SOAL 45</div>
+
+      <div class="q-text">
+        Tuliskan lima contoh perilaku toleransi yang dapat kamu lakukan di sekolah!
+      </div>
+
+      <textarea
+        name="q45"
+        placeholder="Tuliskan jawabanmu dengan jelas..."
+      ></textarea>
+
+    </div>
+
+
+    <button
+      type="submit"
+      class="submit-btn"
+    >
+      KUMPULKAN JAWABAN
+    </button>
+
+  </form>
+
+</section>
+
+
+<!-- ================= RESULT ================= -->
+
+<section
+  class="result"
+  id="resultPage">
+
+  <div class="result-card">
+
+    <div class="result-icon">
+      ✓
+    </div>
+
+    <h1 style="margin-top:15px">
+      Ulangan Selesai
+    </h1>
+
+    <div
+      class="score"
+      id="score">
+      0
+    </div>
+
+    <div
+      class="result-desc"
+      id="resultDesc">
+      Hasil ulangan kamu sudah diproses.
+    </div>
+
+    <div class="result-info">
+
+      <div class="result-mini">
+        <b id="correctCount">0</b>
+        Benar
+      </div>
+
+      <div class="result-mini">
+        <b id="wrongCount">0</b>
+        Salah
+      </div>
+
+      <div class="result-mini">
+        <b id="essayCount">5</b>
+        Uraian
+      </div>
+
+    </div>
+
+    <div class="correction">
+
+      <h3>
+        Ringkasan Pemeriksaan
+      </h3>
+
+      <div id="correctionList"></div>
+
+    </div>
+
+    <button
+      class="restart"
+      onclick="location.reload()"
+    >
+      ULANGI ULANGAN
+    </button>
+
+  </div>
+
+</section>
+
+</div>
+
+
+<div
+  class="toast"
+  id="toast">
+</div>
+
+
+<script>
+
+/* =========================
+   PARTICLES
+========================= */
+
+const particleBox =
+  document.getElementById("particles");
+
+for(let i=0;i<55;i++){
+
+  const p =
+    document.createElement("div");
+
+  p.className="particle";
+
+  p.style.left =
+    Math.random()*100+"%";
+
+  p.style.animationDelay =
+    Math.random()*8+"s";
+
+  p.style.animationDuration =
+    5+Math.random()*8+"s";
+
+  const size =
+    2+Math.random()*5;
+
+  p.style.width=size+"px";
+  p.style.height=size+"px";
+
+  particleBox.appendChild(p);
+}
+
+
+/* =========================
+   ELEMENT
+========================= */
+
+const nama =
+  document.getElementById("nama");
+
+const kelas =
+  document.getElementById("kelas");
+
+const sekolah =
+  document.getElementById("sekolah");
+
+const desa =
+  document.getElementById("desa");
+
+const absen =
+  document.getElementById("absen");
+
+const readKisi =
+  document.getElementById("readKisi");
+
+const startBtn =
+  document.getElementById("startBtn");
+
+const readyDot =
+  document.getElementById("readyDot");
+
+const readyText =
+  document.getElementById("readyText");
+
+const form =
+  document.getElementById("quizForm");
+
+
+/* =========================
+   READY
+========================= */
+
+function checkReady(){
+
+  const ok =
+    nama.value.trim() &&
+    kelas.value.trim() &&
+    sekolah.value.trim() &&
+    desa.value.trim() &&
+    absen.value.trim() &&
+    readKisi.checked;
+
+  startBtn.disabled=!ok;
+
+  if(ok){
+
+    readyDot.classList.add("ok");
+
+    readyText.textContent =
+      "Semua data lengkap. Kamu siap memulai ulangan.";
+
+  }else{
+
+    readyDot.classList.remove("ok");
+
+    readyText.textContent =
+      "Lengkapi identitas dan baca kisi-kisi terlebih dahulu.";
+
+  }
+}
+
+[
+  nama,
+  kelas,
+  sekolah,
+  desa,
+  absen
+].forEach(el=>{
+  el.addEventListener(
+    "input",
+    checkReady
+  );
+});
+
+readKisi.addEventListener(
+  "change",
+  checkReady
+);
+
+
+/* =========================
+   TOAST
+========================= */
+
+let toastTimer;
+
+function toast(message){
+
+  const t =
+    document.getElementById("toast");
+
+  t.textContent=message;
+
+  t.classList.add("show");
+
+  clearTimeout(toastTimer);
+
+  toastTimer =
+    setTimeout(()=>{
+      t.classList.remove("show");
+    },2300);
+}
+
+
+/* =========================
+   RIPPLE
+========================= */
+
+document.addEventListener("click",function(e){
+
+  const button =
+    e.target.closest(
+      "button"
+    );
+
+  if(!button)return;
+
+  const circle =
+    document.createElement("span");
+
+  circle.className="ripple";
+
+  const rect =
+    button.getBoundingClientRect();
+
+  const size =
+    Math.max(
+      rect.width,
+      rect.height
+    );
+
+  circle.style.width=size+"px";
+  circle.style.height=size+"px";
+
+  circle.style.left =
+    e.clientX-rect.left-size/2+"px";
+
+  circle.style.top =
+    e.clientY-rect.top-size/2+"px";
+
+  button.appendChild(circle);
+
+  setTimeout(()=>{
+    circle.remove();
+  },650);
+});
+
+
+/* =========================
+   QUESTION ACTIVE
+========================= */
+
+form.addEventListener(
+  "change",
+  function(e){
+
+    const q =
+      e.target.closest(".question");
+
+    if(q){
+      q.classList.add("answered");
+    }
+
+  }
+);
+
+
+/* =========================
+   START
+========================= */
+
+let timeLeft=3600;
+let timerInterval=null;
+let examStarted=false;
+
+startBtn.addEventListener(
+  "click",
+  ()=>{
+
+    if(startBtn.disabled)return;
+
+    examStarted=true;
+
+    document.getElementById(
+      "startPage"
+    ).style.display="none";
+
+    document.getElementById(
+      "examPage"
+    ).style.display="block";
+
+    document.getElementById(
+      "studentInfo"
+    ).textContent =
+      `${nama.value} • Kelas ${kelas.value} • Absen ${absen.value} • ${sekolah.value}`;
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+    startTimer();
+
+    toast(
+      "Ulangan dimulai. Semangat belajar!"
+    );
+
+  }
+);
+
+
+/* =========================
+   TIMER
+========================= */
+
+function updateTimer(){
+
+  const min =
+    Math.floor(timeLeft/60);
+
+  const sec =
+    timeLeft%60;
+
+  document.getElementById(
+    "time"
+  ).textContent =
+    String(min).padStart(2,"0")
+    +":"
+    +String(sec).padStart(2,"0");
+
+  if(timeLeft<=300){
+
+    document
+      .getElementById("timerBox")
+      .classList.add("warning");
+
+  }
+
+  if(timeLeft<=0){
+
+    clearInterval(
+      timerInterval
+    );
+
+    toast(
+      "Waktu habis. Jawaban dikumpulkan otomatis."
+    );
+
+    form.requestSubmit();
+
+    return;
+  }
+
+  timeLeft--;
+}
+
+function startTimer(){
+
+  updateTimer();
+
+  timerInterval =
+    setInterval(
+      updateTimer,
+      1000
+    );
+}
+
+
+/* =========================
+   PROGRESS
+========================= */
+
+function updateProgress(){
+
+  let answered=0;
+
+  for(let i=1;i<=45;i++){
+
+    const radios =
+      document.querySelectorAll(
+        `input[name="q${i}"]`
+      );
+
+    if(radios.length){
+
+      if(
+        [...radios].some(
+          radio=>radio.checked
+        )
+      ){
+        answered++;
+      }
+
+    }else{
+
+      const el =
+        document.querySelector(
+          `[name="q${i}"]`
+        );
+
+      if(
+        el &&
+        el.value.trim()
+      ){
+        answered++;
+      }
+
+    }
+
+  }
+
+  document.getElementById(
+    "progressText"
+  ).textContent =
+    `${answered}/45 soal terjawab`;
+
+  document.getElementById(
+    "progressBar"
+  ).style.width =
+    `${answered/45*100}%`;
+}
+
+form.addEventListener(
+  "change",
+  updateProgress
+);
+
+form.addEventListener(
+  "input",
+  updateProgress
+);
+
+
+/* =========================
+   ANSWER KEY
+========================= */
+
+const answerKey={
+
+  q1:"A",
+  q2:"A",
+  q3:"A",
+  q4:"A",
+  q5:"A",
+  q6:"A",
+  q7:"A",
+  q8:"A",
+  q9:"A",
+  q10:"A",
+  q11:"A",
+  q12:"A",
+  q13:"A",
+  q14:"A",
+  q15:"A",
+  q16:"A",
+  q17:"A",
+  q18:"A",
+  q19:"A",
+  q20:"A",
+  q21:"A",
+  q22:"A",
+  q23:"A",
+  q24:"A",
+  q25:"A",
+  q26:"A",
+
+  q27:"A",
+  q28:"A",
+  q29:"B",
+  q30:"A",
+  q31:"B",
+  q32:"A",
+  q33:"A",
+  q34:"B",
+  q35:"A",
+
+  q36:[
+    "alquran",
+    "al-quran",
+    "al quran"
+  ],
+
+  q37:[
+    "ramadan",
+    "ramadhan"
+  ],
+
+  q38:[
+    "tawaduk",
+    "tawadhu",
+    "tawadhu'"
+  ],
+
+  q39:[
+    "hira",
+    "hiro"
+  ],
+
+  q40:[
+    "toleransi"
+  ]
+
+};
+
+
+/* =========================
+   NORMALIZE
+========================= */
+
+function normalize(value){
+
+  return value
+    .toLowerCase()
+    .trim()
+    .replace(/[’']/g,"")
+    .replace(/\s+/g," ");
+}
+
+
+/* =========================
+   SUBMIT
+========================= */
+
+form.addEventListener(
+  "submit",
+  function(e){
+
+    e.preventDefault();
+
+    clearInterval(
+      timerInterval
+    );
+
+    let correct=0;
+    let wrong=0;
+
+    const corrections=[];
+
+
+    /* 1-35 */
+
+    for(let i=1;i<=35;i++){
+
+      const selected =
+        document.querySelector(
+          `input[name="q${i}"]:checked`
+        );
+
+      const answer =
+        selected
+          ? selected.value
+          : null;
+
+      if(
+        answer ===
+        answerKey["q"+i]
+      ){
+
+        correct++;
+
+      }else{
+
+        wrong++;
+
+        corrections.push(
+          `Soal ${i}: jawaban belum tepat.`
+        );
+
+      }
+
+    }
+
+
+    /* 36-40 */
+
+    for(let i=36;i<=40;i++){
+
+      const input =
+        document.querySelector(
+          `[name="q${i}"]`
+        );
+
+      const value =
+        normalize(
+          input
+            ? input.value
+            : ""
+        );
+
+      const keys =
+        answerKey["q"+i];
+
+      const isCorrect =
+        keys.some(
+          key =>
+            normalize(key)===value
+        );
+
+      if(isCorrect){
+
+        correct++;
+
+      }else{
+
+        wrong++;
+
+        corrections.push(
+          `Soal ${i}: jawaban belum tepat.`
+        );
+
+      }
+
+    }
+
+
+    const score =
+      Math.round(
+        correct/40*100
+      );
+
+
+    document.getElementById(
+      "score"
+    ).textContent=score;
+
+
+    document.getElementById(
+      "correctCount"
+    ).textContent=correct;
+
+
+    document.getElementById(
+      "wrongCount"
+    ).textContent=wrong;
+
+
+    let desc="";
+
+    if(score>=90){
+
+      desc =
+        "Hasil objektif sangat baik. Pertahankan semangat belajar!";
+
+    }else if(score>=75){
+
+      desc =
+        "Hasil objektif baik. Terus tingkatkan pemahaman materi.";
+
+    }else if(score>=60){
+
+      desc =
+        "Hasil objektif cukup. Pelajari kembali materi yang belum dikuasai.";
+
+    }else{
+
+      desc =
+        "Tetap semangat. Gunakan hasil ini untuk belajar dan memperbaiki pemahaman.";
+
+    }
+
+
+    document.getElementById(
+      "resultDesc"
+    ).textContent=desc;
+
+
+    const list =
+      document.getElementById(
+        "correctionList"
+      );
+
+    list.innerHTML="";
+
+
+    if(
+      corrections.length===0
+    ){
+
+      list.innerHTML =
+        `<div class="correct-item">
+          Semua soal objektif dan isian terjawab dengan benar.
+        </div>`;
+
+    }else{
+
+      corrections.forEach(
+        item=>{
+
+          const div =
+            document.createElement(
+              "div"
+            );
+
+          div.className =
+            "correct-item";
+
+          div.textContent=item;
+
+          list.appendChild(div);
+
+        }
+      );
+
+    }
+
+
+    document.getElementById(
+      "examPage"
+    ).style.display="none";
+
+    document.getElementById(
+      "resultPage"
+    ).style.display="block";
+
+
+    window.scrollTo({
+      top:0,
+      behavior:"smooth"
+    });
+
+
+    /* SCORE ANIMATION */
+
+    const scoreEl =
+      document.getElementById(
+        "score"
+      );
+
+    let current=0;
+
+    const target=score;
+
+    const duration=900;
+
+    const startTime=
+      performance.now();
+
+    function animateScore(now){
+
+      const progress =
+        Math.min(
+          (now-startTime)/duration,
+          1
+        );
+
+      const eased =
+        1-Math.pow(
+          1-progress,
+          3
+        );
+
+      current =
+        Math.round(
+          target*eased
+        );
+
+      scoreEl.textContent=
+        current;
+
+      if(progress<1){
+
+        requestAnimationFrame(
+          animateScore
+        );
+
+      }
+
+    }
+
+    requestAnimationFrame(
+      animateScore
+    );
+
+  }
+);
+
+
+/* =========================
+   EXIT WARNING
+========================= */
+
+window.addEventListener(
+  "beforeunload",
+  e=>{
+
+    if(examStarted){
+
+      e.preventDefault();
+      e.returnValue="";
+
+    }
+
+  }
+);
+
+
+/* =========================
+   INIT
+========================= */
+
+checkReady();
+updateProgress();
+
+</script>
+
+</body>
+  </html>
